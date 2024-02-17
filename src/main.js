@@ -4,7 +4,6 @@ const cntbtn = document.getElementById("pastop");
 let isClockMode = true;
 let isTimerRunning = false;
 cntbtn.style.opacity = "0";
-Spotify.style.width = "320px";
 
 
 function clockbtn() {
