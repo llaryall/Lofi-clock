@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: DanceB;
+    src: url(../Fonts/DancingScript-Bold.ttf);
+}
+@font-face {
+    font-family: Dance;
+    src: url(../Fonts/DancingScript-Regular.ttf);
+    
+}
+@font-face {
+    font-family: heart;
+    src: url(../Fonts/AlwaysInMyHeart.ttf);
+}
+*{
+    font-family: DanceB;
+}
