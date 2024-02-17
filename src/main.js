@@ -46,7 +46,7 @@ function TimeUpdate() {
 setInterval(TimeUpdate, 1000);
 
 function spoti() {
-  if (parseInt(Spotify.style.width) >= 320) {
+  if (parseInt(Spotify.style.width) > 0) {
     Spotify.style.width = "0px";
     Spotify.style.transition = "width 1.5s ease";
   } else {
