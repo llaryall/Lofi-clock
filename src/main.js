@@ -110,19 +110,24 @@ var day = true;
 var videoSelect = document.getElementById("themesel");
 var bgVideo = document.getElementById("bgvid");
 
+var day = true;
+var videoSelect = document.getElementById("themesel");
+var bgVideo = document.getElementById("bgvid");
+
 function changeVideo(value) {
+  currentTheme = value;
   if (day) {
     bgVideo.src = "./imgs/" + value + "-day.mp4";
   } else {
     bgVideo.src = "./imgs/" + value + "-night.mp4";
   }
-  
 }
 
 function toggleDayNight() {
   day = !day;
-  changeVideo(videoSelect.value);
+  changeVideo(currentTheme);
 }
 
-
-
+document.getElementById("dropbtn").addEventListener("click", function () {
+  document.getElementById("myDropdown").classList.toggle("show");
+});

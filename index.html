@@ -16,21 +16,18 @@
   <div class="flex flex-row h-screen">
     <button class="z-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl fixed p-1 mt-2 ml-2"
       onclick="toggleDayNight()">
-      <img class="w-8 h-8" src="./imgs/night.svg" alt="" />
+      <img class="w-7 h-7" src="./imgs/night.svg" alt="" />
     </button>
-    <select class="z-10 fixed top-20 right-[30%]" style="
-          appearance: none;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          background: url('imgs/circle.png') no-repeat right center;
-          border-radius: 50%;
-          outline: none;
-        " id="themesel" onchange="changeVideo(this.value)">
-      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value=""></option>
-      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="cozy-house-rainy">Theme A</option>
-      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="japanese-style-room">Theme B</option>
-      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="himitsus-house">Theme C</option>
-    </select>
+    <div class="dropdown z-10">
+      <button id="dropbtn" class="">
+        <img src="imgs/circle.png" alt="" />
+      </button>
+      <div id="myDropdown" class="dropdown-content bg-custom-peach bg-opacity-40 rounded-3xl backdrop-blur-3xl">
+        <a href="#" onclick="changeVideo('cozy-house-rainy')">Theme A</a>
+        <a href="#" onclick="changeVideo('japanese-style-room')">Theme B</a>
+        <a href="#" onclick="changeVideo('himitsus-house')">Theme C</a>
+      </div>
+    </div>
     <div class="w-screen flex flex-col justify-center items-center gap-10 mt-16">
       <div class="flex flex-row gap-10">
         <button>
