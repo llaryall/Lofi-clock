@@ -107,26 +107,36 @@ function timerbtn() {
 // ------------------------- Theme -------------------------------------
 
 var day = true;
-var videoSelect = document.getElementById("themesel");
 var bgVideo = document.getElementById("bgvid");
+let togg = document.getElementById("toggle")
+var brushbtn = document.getElementById("themebtn")
 
-var day = true;
-var videoSelect = document.getElementById("themesel");
-var bgVideo = document.getElementById("bgvid");
+
+
+
 
 function changeVideo(value) {
   currentTheme = value;
-  if (day) {
+  if(value=="lofi-coffee-shop"){
+    togg.style.display='none'
+    bgVideo.src = "./imgs/" + value + "-day.mp4";
+    brushbtn.style.top="1%"
+    brushbtn.style.transition='top 1s ease'
+  }
+  else{ if (day) {
     bgVideo.src = "./imgs/" + value + "-day.mp4";
   } else {
     bgVideo.src = "./imgs/" + value + "-night.mp4";
   }
+  togg.style.display='block'
+  brushbtn.style.top="10%"
 }
-
+}
 function toggleDayNight() {
   day = !day;
   changeVideo(currentTheme);
 }
+
 
 document.getElementById("dropbtn").addEventListener("click", function () {
   document.getElementById("myDropdown").classList.toggle("show");

@@ -10,22 +10,23 @@
 </head>
 
 <body>
-  <video id="bgvid" allowfullscreen=true disablePictureInPicture autoplay loop muted class="fixed h-screen w-screen object-cover"
-    src="./imgs/lofi-coffee-shop-morning-city-moewalls-com.mp4"></video>
+  <video id="bgvid" allowfullscreen="true" disablePictureInPicture autoplay loop muted
+    class="fixed h-screen w-screen object-cover" src="./imgs/cozy-house-rainy-day.mp4"></video>
 
   <div class="flex flex-row h-screen">
-    <button class="z-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl fixed p-1 mt-2 ml-2"
+    <button id="toggle" class="z-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl fixed p-1 mt-2 ml-2"
       onclick="toggleDayNight()">
       <img class="w-7 h-7" src="./imgs/night.svg" alt="" />
     </button>
-    <div class="dropdown z-10">
-      <button id="dropbtn" class="bg-custom-peach bg-opacity-50 rounded-3xl backdrop-blur-3xl p-1">
+    <div id="themebtn" class="dropdown z-10">
+      <button id="dropbtn" class="bg-custom-peach bg-opacity-50 rounded-3xl backdrop-blur-3xl p-1 mb-3">
         <img class="w-7 h-7" src="./imgs/brush.svg" alt="" />
       </button>
       <div id="myDropdown" class="dropdown-content bg-custom-peach bg-opacity-40 rounded-3xl backdrop-blur-3xl">
         <a href="#" onclick="changeVideo('cozy-house-rainy')">Cozy house</a>
         <a href="#" onclick="changeVideo('japanese-style-room')">japanese room</a>
         <a href="#" onclick="changeVideo('himitsus-house')">himitsus house</a>
+        <a href="#" onclick="changeVideo('lofi-coffee-shop')">lofi coffeeshop</a>
       </div>
     </div>
     <div class="w-screen flex flex-col justify-center items-center gap-10 mt-16">
