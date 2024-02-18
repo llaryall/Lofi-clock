@@ -112,9 +112,9 @@ var bgVideo = document.getElementById("bgvid");
 
 function changeVideo(value) {
   if (day) {
-    bgVideo.src = "imgs/" + value + "-day.mp4";
+    bgVideo.src = "./imgs/" + value + "-day.mp4";
   } else {
-    bgVideo.src = "imgs/" + value + "-night.mp4";
+    bgVideo.src = "./imgs/" + value + "-night.mp4";
   }
   
 }
