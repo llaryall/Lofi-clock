@@ -70,7 +70,7 @@ function UpdateDis() {
   const hour = Math.floor(second / 3600)
     .toString()
     .padStart(2, "0");
-  const minut = Math.floor(second / 60)
+  const minut = Math.floor((second % 3600) / 60)
     .toString()
     .padStart(2, "0");
   const remainsec = Math.floor(second % 60)
