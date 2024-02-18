@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/output.css" rel="stylesheet" />
-    <link rel="icon" href="./imgs/OIP.jpg" />
-    <title>Lofi Vibe✨</title>
-  </head>
 
-  <body>
-    <video
-      disablePictureInPicture
-      autoplay
-      loop
-      muted
-      class="fixed h-screen w-screen object-cover"
-      src="./imgs/lofi-coffee-shop-morning-city-moewalls-com.mp4"
-    ></video>
-    <div class="flex flex-row h-screen">
-      <div class="w-screen flex flex-col justify-center items-center gap-10">
-        <div class="flex flex-row gap-10">
-          <button>
-            <p
-              class="text-2xl backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-4"
-              onclick="timerbtn()"
-            >
-              timer
-            </p>
-          </button>
-          <button onclick="clockbtn()">
-            <p
-              class="text-2xl backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-4"
-            >
-              clock
-            </p>
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./src/output.css" rel="stylesheet" />
+  <link rel="icon" href="./imgs/OIP.jpg" />
+  <title>Lofi Vibe✨</title>
+</head>
 
-        <p
-          id="time"
-          class="text-9xl text-custom-Anti-Flash-White backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-6"
-        ></p>
-        <div
-          id="pastop"
-          class="flex gap-5 backdrop-blur-3xl bg-custom-peach bg-opacity-50 rounded-[40px] p-3"
-        >
-          <button onclick="stop()" class="">
-            <img class="h-10 w-10" src="./imgs/stop.svg" alt="" />
-          </button>
-          <button onclick="pauseTime()">
-            <img class="w-10 h-10" src="./imgs/pause.svg" alt="" />
-          </button>
-          <button onclick="resumeTime()">
-            <img class="h-10 w-10" src="./imgs/play.svg" alt="" />
-          </button>
-        </div>
+<body>
+  <video id="bgvid" disablePictureInPicture autoplay loop muted class="fixed h-screen w-screen object-cover"
+    src="./imgs/lofi-coffee-shop-morning-city-moewalls-com.mp4"></video>
+
+  <div class="flex flex-row h-screen">
+    <button class="z-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl fixed p-1 mt-2 ml-2"
+      onclick="toggleDayNight()">
+      <img class="w-8 h-8" src="/imgs/night.svg" alt="" />
+    </button>
+    <select class="z-10 fixed top-20 right-[30%]" style="
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background: url('imgs/circle.png') no-repeat right center;
+          border-radius: 50%;
+          outline: none;
+        " id="themesel" onchange="changeVideo(this.value)">
+      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value=""></option>
+      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="cozy-house-rainy">Theme A</option>
+      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="japanese-style-room">Theme B</option>
+      <option class="backdrop-blur-3xl bg-custom-peach bg-opacity-40" value="himitsus-house">Theme C</option>
+    </select>
+    <div class="w-screen flex flex-col justify-center items-center gap-10 mt-16">
+      <div class="flex flex-row gap-10">
+        <button>
+          <p class="text-2xl backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-4" onclick="timerbtn()">
+            timer
+          </p>
+        </button>
+        <button onclick="clockbtn()">
+          <p class="text-2xl backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-4">
+            clock
+          </p>
+        </button>
       </div>
-      <div class="flex flex-col items-end justify-end z-10">
-        <iframe
-          style="border-radius: 25px 0px 0px 25px"
-          src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0"
-          class="h-[70%] w-80 mb-3"
-          id="spotify"
-          frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-        <button
-          class="h-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl mb-2 mr-2"
-          onclick="spoti()"
-        >
-          <img class="w-10 h-10" src="./imgs/spotify.svg" alt="" />
+
+      <p id="time"
+        class="text-9xl text-custom-Anti-Flash-White backdrop-blur-3xl bg-custom-peach bg-opacity-40 rounded-3xl p-6">
+      </p>
+      <div id="pastop" class="flex gap-5 backdrop-blur-3xl bg-custom-peach bg-opacity-50 rounded-[40px] p-3">
+        <button onclick="stop()" class="">
+          <img class="h-10 w-10" src="./imgs/stop.svg" alt="" />
+        </button>
+        <button onclick="pauseTime()">
+          <img class="w-10 h-10" src="./imgs/pause.svg" alt="" />
+        </button>
+        <button onclick="resumeTime()">
+          <img class="h-10 w-10" src="./imgs/play.svg" alt="" />
         </button>
       </div>
     </div>
-    <script src="./src/main.js"></script>
-  </body>
+    <div class="flex flex-col items-end justify-end z-10">
+      <iframe style="border-radius: 25px 0px 0px 25px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator&theme=0"
+        class="h-[70%] w-80 mb-3" id="spotify" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <button class="h-10 bg-custom-peach rounded-full bg-opacity-50 backdrop-blur-3xl mb-2 mr-2" onclick="spoti()">
+        <img class="w-10 h-10" src="./imgs/spotify.svg" alt="" />
+      </button>
+    </div>
+  </div>
+  <script src="./src/main.js"></script>
+</body>
+
 </html>

@@ -5,33 +5,6 @@ let isClockMode = true;
 let isTimerRunning = false;
 cntbtn.style.opacity = "0";
 
-
-function clockbtn() {
-  if (!isClockMode) {
-  // Stop the timer if running
-    TimeUpdate();
-    isClockMode = true;
-    isTimerRunning = false; // Ensure the timer is not running
-  }
-  cntbtn.style.opacity = "0";
-  cntbtn.style.transition = "opacity 0.3s ease";
-}
-
-function timerbtn() {
-  if (isClockMode) {
-    // Switch to timer mode
-    isClockMode = false;
-    UpdateDis();
-  } else {
-    // Switch to clock mode
-    isClockMode = true;
-    TimeUpdate();
-  }
-
-  cntbtn.style.opacity = "100";
-  cntbtn.style.transition = "opacity 0.3s ease";
-}
-
 function TimeUpdate() {
   if (isClockMode) {
     const now = new Date();
@@ -91,7 +64,6 @@ function sec() {
   if (!isClockMode) {
     UpdateDis();
   }
-
 }
 
 function UpdateDis() {
@@ -107,3 +79,50 @@ function UpdateDis() {
   const timer = `${hour}:${minut}:${remainsec}`;
   time.innerText = timer;
 }
+function clockbtn() {
+  if (!isClockMode) {
+    // Stop the timer if running
+    TimeUpdate();
+    isClockMode = true;
+    isTimerRunning = false; // Ensure the timer is not running
+  }
+  cntbtn.style.opacity = "0";
+  cntbtn.style.transition = "opacity 0.3s ease";
+}
+
+function timerbtn() {
+  if (isClockMode) {
+    // Switch to timer mode
+    isClockMode = false;
+    UpdateDis();
+  } else {
+    // Switch to clock mode
+    isClockMode = true;
+    TimeUpdate();
+  }
+
+  cntbtn.style.opacity = "100";
+  cntbtn.style.transition = "opacity 0.3s ease";
+}
+// ------------------------- Theme -------------------------------------
+
+var day = true;
+var videoSelect = document.getElementById("themesel");
+var bgVideo = document.getElementById("bgvid");
+
+function changeVideo(value) {
+  if (day) {
+    bgVideo.src = "imgs/" + value + "-day.mp4";
+  } else {
+    bgVideo.src = "imgs/" + value + "-night.mp4";
+  }
+  
+}
+
+function toggleDayNight() {
+  day = !day;
+  changeVideo(videoSelect.value);
+}
+
+
+
