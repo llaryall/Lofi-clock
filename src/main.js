@@ -1,6 +1,7 @@
 const time = document.getElementById("time");
 const Spotify = document.getElementById("spotify");
 const cntbtn = document.getElementById("pastop");
+spotibtn = document.getElementById("spotibtn");
 let isClockMode = true;
 let isTimerRunning = false;
 cntbtn.style.opacity = "0";
@@ -19,11 +20,11 @@ function TimeUpdate() {
 setInterval(TimeUpdate, 1000);
 
 function spoti() {
-  if (parseInt(Spotify.style.width) > 0) {
-    Spotify.style.width = "0px";
+  if (parseInt(Spotify.style.width) == 0) {
+    Spotify.style.width = "320px";
     Spotify.style.transition = "width 1.5s ease";
   } else {
-    Spotify.style.width = "320px";
+    Spotify.style.width = "0px";
   }
 }
 
@@ -107,37 +108,136 @@ function timerbtn() {
 // ------------------------- Theme -------------------------------------
 
 var day = true;
-var bgVideo = document.getElementById("bgvid");
-let togg = document.getElementById("toggle")
-var brushbtn = document.getElementById("themebtn")
+var currentTheme;
+var elements = {
+  bgVideo: document.getElementById("bgvid"),
+  togg: document.getElementById("toggle"),
+  brushbtn: document.getElementById("themebtn"),
+  rainbtn: document.getElementById("rainbtn"),
+  sparklebtn: document.getElementById("sparklebtn"),
+  firebtn: document.getElementById("firebtn"),
+};
+var currentTheme = "cozy-house-rainy";
 
-
-
-
+var themes = {
+  "lofi-coffee-shop": {
+    day: {
+      video: "./imgs/lofi-coffee-shop-day.mp4",
+      toggDisplay: "none",
+      brushbtnTop: "1%",
+      rainbtnDisplay: "none",
+      firebtnDisplay: "none",
+    },
+    night: {
+      video: "./imgs/lofi-coffee-shop-day.mp4",
+    },
+  },
+  "cozy-house-rainy": {
+    day: {
+      toggDisplay: "block",
+      video: "./imgs/cozy-house-rainy-day.mp4",
+      brushbtnTop: "10%",
+      rainbtnDisplay: "block",
+      firebtnDisplay: "block",
+      sparklebtnRight: "none",
+      firebtnright: "8%",
+    },
+    night: {
+      video: "./imgs/cozy-house-rainy-night.mp4",
+      rainbtnDisplay: "block",
+      sparklebtnDisplay: "block",
+      rainbtnDisplay: "block",
+      firebtnDisplay: "block",
+      firebtnright: "12%",
+    },
+  },
+  "japanese-style-room": {
+    day: {
+      toggDisplay: "block",
+      video: "./imgs/japanese-style-room-day.mp4",
+      brushbtnTop: "10%",
+      rainbtnDisplay: "none",
+      firebtnDisplay: "none",
+      sparklebtnRight: "none",
+    },
+    night: {
+      video: "./imgs/japanese-style-room-night.mp4",
+      rainbtnDisplay: "none",
+      firebtnDisplay: "none",
+      sparklebtnDisplay: "block",
+      sparklebtnRight: "4",
+    },
+  },
+  "himitsus-house": {
+    day: {
+      video: "./imgs/himitsus-house-day.mp4",
+      toggDisplay: "block",
+      brushbtnTop: "10%",
+      rainbtnDisplay: "none",
+      firebtnDisplay: "none",
+      sparklebtnDisplay: "none",
+    },
+    night: {
+      video: "./imgs/himitsus-house-night.mp4",
+      rainbtnDisplay: "block",
+      sparklebtnDisplay: "block",
+    },
+  },
+};
 
 function changeVideo(value) {
   currentTheme = value;
-  if(value=="lofi-coffee-shop"){
-    togg.style.display='none'
-    bgVideo.src = "./imgs/" + value + "-day.mp4";
-    brushbtn.style.top="1%"
-    brushbtn.style.transition='top 1s ease'
-  }
-  else{ if (day) {
-    bgVideo.src = "./imgs/" + value + "-day.mp4";
-  } else {
-    bgVideo.src = "./imgs/" + value + "-night.mp4";
-  }
-  togg.style.display='block'
-  brushbtn.style.top="10%"
+  var themeSettings =
+    themes[value][day || !themes[value].night ? "day" : "night"];
+
+  elements.bgVideo.src = themeSettings.video;
+  elements.togg.style.display = themeSettings.toggDisplay || "block";
+  elements.brushbtn.style.top = themeSettings.brushbtnTop || "10%";
+  elements.firebtn.style.right = themeSettings.firebtnright || "8%";
+  elements.rainbtn.style.display = themeSettings.rainbtnDisplay || "none";
+  elements.firebtn.style.display = themeSettings.firebtnDisplay || "none";
+  elements.sparklebtn.style.right = themeSettings.sparklebtnRight || "none";
+  elements.sparklebtn.style.display = themeSettings.sparklebtnDisplay || "none";
 }
-}
+
 function toggleDayNight() {
   day = !day;
   changeVideo(currentTheme);
 }
 
-
 document.getElementById("dropbtn").addEventListener("click", function () {
   document.getElementById("myDropdown").classList.toggle("show");
 });
+
+// --------------------Sounds-----------------------
+const rainEffect = document.getElementById("rain");
+const fireEffect = document.getElementById("fire");
+const sparkleEff = document.getElementById("sparkle");
+
+function Rain() {
+  if (!rainEffect.paused) {
+    rainEffect.pause();
+    rainbtn.classList.toggle("onof");
+  } else {
+    rainEffect.play();
+    rainbtn.classList.toggle("onof");
+  }
+}
+function fire() {
+  if (!fireEffect.paused) {
+    fireEffect.pause();
+    firebtn.classList.toggle("onof");
+  } else {
+    fireEffect.play();
+    firebtn.classList.toggle("onof");
+  }
+}
+function Sparkle() {
+  if (!sparkleEff.paused) {
+    sparkleEff.pause();
+    sparklebtn.classList.toggle("onof");
+  } else {
+    sparkleEff.play();
+    sparklebtn.classList.toggle("onof");
+  }
+}
