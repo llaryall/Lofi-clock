@@ -125,11 +125,15 @@ var themes = {
       video: "./imgs/lofi-coffee-shop-day.mp4",
       toggDisplay: "none",
       brushbtnTop: "1%",
-      rainbtnDisplay: "none",
-      firebtnDisplay: "none",
+      firebtnright: "0%",
+      rainbtnRight:"0%",
+      sparklebtnRight: "0%",
+      brushtransition:"top 1s ease"
     },
     night: {
       video: "./imgs/lofi-coffee-shop-day.mp4",
+      toggDisplay: "none",
+      brushbtnTop: "1%",
     },
   },
   "cozy-house-rainy": {
@@ -137,18 +141,12 @@ var themes = {
       toggDisplay: "block",
       video: "./imgs/cozy-house-rainy-day.mp4",
       brushbtnTop: "10%",
-      rainbtnDisplay: "block",
-      firebtnDisplay: "block",
-      sparklebtnRight: "none",
+      sparklebtnRight :"0px",
+      firebtntransition:"right 1s ease",
       firebtnright: "8%",
     },
     night: {
       video: "./imgs/cozy-house-rainy-night.mp4",
-      rainbtnDisplay: "block",
-      sparklebtnDisplay: "block",
-      rainbtnDisplay: "block",
-      firebtnDisplay: "block",
-      firebtnright: "12%",
     },
   },
   "japanese-style-room": {
@@ -156,16 +154,20 @@ var themes = {
       toggDisplay: "block",
       video: "./imgs/japanese-style-room-day.mp4",
       brushbtnTop: "10%",
-      rainbtnDisplay: "none",
-      firebtnDisplay: "none",
-      sparklebtnRight: "none",
+      sparklebtnRight: "0%",
+      firebtnright: "0%",
+      rainbtnRight:"0%",
+      sparklebtntransition:"right 1s ease"
+
+     
     },
     night: {
       video: "./imgs/japanese-style-room-night.mp4",
-      rainbtnDisplay: "none",
-      firebtnDisplay: "none",
-      sparklebtnDisplay: "block",
-      sparklebtnRight: "4",
+      sparklebtnRight: "4%",
+      firebtnright: "0%",
+      rainbtnRight:"0%",
+      
+      
     },
   },
   "himitsus-house": {
@@ -173,14 +175,16 @@ var themes = {
       video: "./imgs/himitsus-house-day.mp4",
       toggDisplay: "block",
       brushbtnTop: "10%",
-      rainbtnDisplay: "none",
-      firebtnDisplay: "none",
-      sparklebtnDisplay: "none",
+      sparklebtnRight: "0%",
+      rainbtnRight :"0%",
+      firebtnright: "0%",
+      rainbtntransition:"right 1s ease"
     },
     night: {
       video: "./imgs/himitsus-house-night.mp4",
-      rainbtnDisplay: "block",
-      sparklebtnDisplay: "block",
+      rainbtnRight :"4%",
+      sparklebtnRight: "8%",
+      firebtnright: "0%",
     },
   },
 };
@@ -193,11 +197,18 @@ function changeVideo(value) {
   elements.bgVideo.src = themeSettings.video;
   elements.togg.style.display = themeSettings.toggDisplay || "block";
   elements.brushbtn.style.top = themeSettings.brushbtnTop || "10%";
-  elements.firebtn.style.right = themeSettings.firebtnright || "8%";
-  elements.rainbtn.style.display = themeSettings.rainbtnDisplay || "none";
-  elements.firebtn.style.display = themeSettings.firebtnDisplay || "none";
-  elements.sparklebtn.style.right = themeSettings.sparklebtnRight || "none";
-  elements.sparklebtn.style.display = themeSettings.sparklebtnDisplay || "none";
+  elements.firebtn.style.right = themeSettings.firebtnright || "12%";
+  elements.rainbtn.style.right = themeSettings.rainbtnRight || "4%";
+  elements.sparklebtn.style.right = themeSettings.sparklebtnRight || "8%";
+  elements.rainbtn.style.display = themeSettings.rainbtnDisplay || "block";
+  elements.firebtn.style.display = themeSettings.firebtnDisplay || "block";
+  elements.sparklebtn.style.display = themeSettings.sparklebtnDisplay || "block";
+  elements.brushbtn.style.transition = themeSettings.brushtransition || "top 1s ease"
+  elements.firebtn.style.transition = themeSettings.firebtntransition || "right 1s ease"
+  elements.sparklebtn.style.transition = themeSettings.sparklebtntransition || "right 1s ease"
+  elements.rainbtn.style.transition = themeSettings.rainbtntransition || "right 1s ease"
+  
+
 }
 
 function toggleDayNight() {
@@ -235,9 +246,9 @@ function fire() {
 function Sparkle() {
   if (!sparkleEff.paused) {
     sparkleEff.pause();
-    sparklebtn.classList.toggle("onof");
+    elements.sparklebtn.classList.toggle("onof");
   } else {
     sparkleEff.play();
-    sparklebtn.classList.toggle("onof");
+    elements.sparklebtn.classList.toggle("onof");
   }
 }
