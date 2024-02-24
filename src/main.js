@@ -252,3 +252,4 @@ function Sparkle() {
     elements.sparklebtn.classList.toggle("onof");
   }
 }
+fire.volume=2;
