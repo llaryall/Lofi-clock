@@ -49,8 +49,8 @@ function pauseTime() {
 }
 function resumeTime() {
   if (!isTimerRunning || pauserec > 0) {
-    // Set the current time to the paused time
-    StartTime(); // Resume the timer
+    
+    StartTime();
   }
 }
 function stop() {
@@ -82,10 +82,10 @@ function UpdateDis() {
 }
 function clockbtn() {
   if (!isClockMode) {
-    // Stop the timer if running
+   
     TimeUpdate();
     isClockMode = true;
-    isTimerRunning = false; // Ensure the timer is not running
+    isTimerRunning = false; 
   }
   cntbtn.style.opacity = "0";
   cntbtn.style.transition = "opacity 0.3s ease";
