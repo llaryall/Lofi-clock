@@ -30,7 +30,6 @@
 
   backdrop-filter: blur(10px);
   min-width: 120px;
-
   z-index: 1;
   height: 0px;
   overflow: hidden;
@@ -52,4 +51,7 @@
 .onof{
   background-color: #FFE6A7;
   transition: background-color 1s ease;
+}
+.TodoList{
+  border-radius: 5px 25px 25px 5px;
 }

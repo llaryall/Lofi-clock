@@ -252,3 +252,70 @@ function Sparkle() {
     elements.sparklebtn.classList.toggle("onof");
   }
 }
+// --------------------------todoList------------------------
+todolist=document.getElementById("todolist")
+function todo() {
+ 
+  
+    if (parseInt(todolist.style.width) == 0) {
+      todolist.style.width = "320px";
+      todolist.style.transition = "width 1.5s ease";
+    } else {
+      todolist.style.width = "0px";
+    }
+  }
+  let list = JSON.parse(localStorage.getItem("tasks")) || [];
+  const Add = document.getElementById("add");
+  const TaskList = document.getElementById("tasklist");
+  
+  function add() {
+    // Prompt the user for a task
+    let value = prompt("Enter your task:");
+  
+    // Check if the user entered a task
+    if (value !== null && value.trim() !== "") {
+      // Add the task to the list
+      list.push(value.trim());
+  
+      // Render the tasks
+  
+      renderTasks();
+  
+      // Save the tasks to local storage
+      saveTasks();
+    } else {
+      // If the user did not enter a task, show an alert
+      alert("Please enter your task.");
+    }
+  }
+  function renderTasks() {
+    TaskList.innerHTML = "";
+    list.forEach((task, index) => {
+      const listItem = document.createElement("li");
+      listItem.style.fontSize='30px'
+      const del = document.createElement("button");
+      del.style.border='2px solid black'
+      del.style.marginLeft='20px'
+      del.style.backgroundColor='red'
+      del.style.padding='10px'
+      del.style.width='80px'
+      del.style.fontSize='20px'
+      del.textContent='delete'
+      del.addEventListener("click", () => {
+        list.splice(index, 1);
+        renderTasks()
+        saveTasks()
+      });
+      
+      // Save the updated tasks to local storage
+     
+      listItem.textContent = task;
+      TaskList.appendChild(listItem);
+      listItem.appendChild(del);
+    });
+  }
+  function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(list));
+  }
+  renderTasks();
+  
