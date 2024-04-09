@@ -574,12 +574,12 @@ video {
   right: 8%;
 }
 
-.z-0 {
-  z-index: 0;
-}
-
 .z-10 {
   z-index: 10;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
 .mb-16 {
@@ -598,6 +598,10 @@ video {
   margin-left: 0.5rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -610,16 +614,8 @@ video {
   margin-top: 0.5rem;
 }
 
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 
 .flex {
@@ -654,28 +650,16 @@ video {
   width: 2.5rem;
 }
 
+.w-24 {
+  width: 6rem;
+}
+
 .w-7 {
   width: 1.75rem;
 }
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[360px\] {
-  width: 360px;
-}
-
-.w-52 {
-  width: 13rem;
-}
-
-.w-24 {
-  width: 6rem;
 }
 
 .max-w-\[70\%\] {
@@ -718,14 +702,6 @@ video {
   align-self: flex-end;
 }
 
-.self-center {
-  align-self: center;
-}
-
-.self-baseline {
-  align-self: baseline;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -742,20 +718,8 @@ video {
   border-radius: 9999px;
 }
 
-.border {
-  border-width: 1px;
-}
-
-.border-8 {
-  border-width: 8px;
-}
-
 .border-2 {
   border-width: 2px;
-}
-
-.border-solid {
-  border-style: solid;
 }
 
 .border-black {
@@ -763,19 +727,9 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
-.border-l-black {
-  --tw-border-opacity: 1;
-  border-left-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
 .bg-custom-peach {
   --tw-bg-opacity: 1;
   background-color: rgb(255 230 167 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-40 {
@@ -795,6 +749,10 @@ video {
   padding: 0.25rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-3 {
   padding: 0.75rem;
 }
@@ -807,18 +765,6 @@ video {
   padding: 1.5rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.align-middle {
-  vertical-align: middle;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -829,33 +775,12 @@ video {
   line-height: 1;
 }
 
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-\[150px\] {
-  font-size: 150px;
-}
-
-.text-\[70px\] {
-  font-size: 70px;
-}
-
-.text-\[50px\] {
-  font-size: 50px;
-}
-
-.text-\[10px\] {
-  font-size: 10px;
-}
-
 .text-\[30px\] {
   font-size: 30px;
 }
 
-.text-\[px\] {
-  color: px;
+.text-\[50px\] {
+  font-size: 50px;
 }
 
 .backdrop-blur-3xl {
