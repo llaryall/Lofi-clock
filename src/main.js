@@ -294,10 +294,11 @@ function todo() {
       const listItem = document.createElement("li");
       listItem.style.fontSize='30px'
       const del = document.createElement("button");
-      del.style.border='2px solid black'
+      del.style.border='1px solid black'
       del.style.marginLeft='20px'
       del.style.backgroundColor='red'
-      del.style.padding='10px'
+      del.style.borderRadius='20px'
+      del.style.padding='5px'
       del.style.width='80px'
       del.style.fontSize='20px'
       del.textContent='delete'

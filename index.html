@@ -30,15 +30,17 @@
       </div>
     </div>
     <button onclick="todo()"
-      class=" w-10 h-10 bg-custom-peach bg-opacity-50 rounded-3xl backdrop-blur-3xl absolute bottom-[2%]"></button>
+      class=" w-10 h-10 bg-custom-peach bg-opacity-50 rounded-3xl backdrop-blur-3xl absolute bottom-[2%]">
+      <img src="imgs/checklist.png" alt="">
+    </button>
     <div class="flex w-screen h-screen justify-between ">
       <div id="todolist"
-        class="bg-custom-peach bg-opacity-50 backdrop-blur-3xl TodoList flex flex-col items-center self-end w-0 h-[70%]  z-10 mb-16">
-        <h1 class=" overflow-hidden text-[50px] ">TodoList</h1>
-        <button class="mb-10 overflow-hidden ml-5 mt-5 text-[30px] border-black border-2 p-2 w-24" id="add"
+        class="bg-custom-peach bg-opacity-50 backdrop-blur-3xl TodoList flex flex-col  self-end w-0 h-[70%]  z-10 mb-16">
+        <h1 class=" overflow-hidden ml-28 text-4xl mt-4 ">TodoList</h1>
+        <span class="border-b-2 border-black mt-3 mb-3"></span>
+        <button class="overflow-hidden text-4xl mb-5 font-bold" id="add"
           onclick="add()">add</button>
-        <img src="todo.svg" alt="" style="width: 10px;">
-        <ul id="tasklist">
+        <ul id="tasklist" class="overflow-scroll flex flex-col items-center scrollbar-hide">
 
         </ul>
       </div>
